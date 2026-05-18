@@ -30,10 +30,10 @@ jobs:
         run: mkdir -p reports
           npm test -- --reporter=default --reporter=junit --outputFile.junit=reports/vitest-junit.xml
 
-      - name: Upload test report
+      - name: Test Report
+        uses: dorny/test-reporter@v1
         if: ${{ !env.ACT }}
-        uses: actions/upload-artifact@v4
         with:
-          name: ci-test-report
-          path: reports/
-          if-no-files-found: error
+          name: Vitest Tests
+          path: reports/vitest-junit.xml
+          reporter: java-junit
