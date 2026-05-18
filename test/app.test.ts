@@ -26,3 +26,5 @@ describe('Fastify app', () => {
     await app.close();
   });
 });
+
+const x={a:1,b:2}
