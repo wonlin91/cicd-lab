@@ -27,7 +27,8 @@ jobs:
         run: npm run format:check
 
       - name: Run tests
-        run: mkdir -p reports
+        run: |
+          mkdir -p reports
           npm test -- --reporter=default --reporter=junit --outputFile.junit=reports/vitest-junit.xml
 
       - name: Test Report
